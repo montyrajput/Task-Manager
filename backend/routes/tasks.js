@@ -1,10 +1,10 @@
-// backend/routes/tasks.js
+
 const express = require('express');
 const router = express.Router();
 const { protect } = require('../middleware/auth');
 const taskController = require('../controllers/taskController');
 
-router.use(protect); // all below require auth
+router.use(protect); 
 
 router.post('/', taskController.createTask);
 router.get('/', taskController.getTasks);

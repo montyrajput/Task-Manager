@@ -1,4 +1,4 @@
-// backend/middleware/auth.js
+
 const jwt = require('jsonwebtoken');
 
 const protect = (req, res, next) => {
@@ -8,7 +8,7 @@ const protect = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    // decoded should include id, username, role
+    
     req.user = decoded;
     return next();
   } catch (err) {

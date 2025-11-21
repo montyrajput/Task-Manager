@@ -1,4 +1,4 @@
-// backend/controllers/taskController.js
+
 const Joi = require('joi');
 const { run, get, all } = require('../config/db');
 
@@ -32,26 +32,26 @@ exports.createTask = async (req, res) => {
 exports.getTasks = async (req, res) => {
   try {
     const search = (req.query.search || "").trim();
-    const status = (req.query.status || "").trim(); // pending | inprogress | done
+    const status = (req.query.status || "").trim(); 
     const limit = parseInt(req.query.limit, 10) || 10;
     const offset = parseInt(req.query.offset, 10) || 0;
 
     const where = [];
     const params = [];
 
-    // Restrict users (not admin) to their own tasks
+    
     if (req.user.role !== "admin") {
       where.push("createdBy = ?");
       params.push(req.user.id);
     }
 
-    // Search by title
+    
     if (search) {
       where.push("LOWER(tasks.title) LIKE ?");
       params.push("%" + search.toLowerCase() + "%");
     }
 
-    // Filter by status
+    
     if (status) {
       where.push("tasks.status = ?");
       params.push(status);
@@ -59,7 +59,7 @@ exports.getTasks = async (req, res) => {
 
     const whereSQL = where.length ? "WHERE " + where.join(" AND ") : "";
 
-    // Count total tasks (for frontend pagination UI)
+    
     const countQuery = `
       SELECT COUNT(*) AS total
       FROM tasks
@@ -68,7 +68,7 @@ exports.getTasks = async (req, res) => {
     const countRow = await get(countQuery, params);
     const total = countRow?.total || 0;
 
-    // Main fetch query with pagination + join for ownerName
+    
     const query = `
       SELECT tasks.*, users.username AS ownerName
       FROM tasks
@@ -94,7 +94,7 @@ exports.getTaskById = async (req, res) => {
     const task = await get('SELECT * FROM tasks WHERE id = ?', [id]);
     if (!task) return res.status(404).json({ message: 'Task not found' });
 
-    // ownership check
+    
     if (req.user.role !== 'admin' && task.createdBy !== req.user.id) {
       return res.status(403).json({ message: 'Forbidden' });
     }
@@ -112,7 +112,7 @@ exports.updateTask = async (req, res) => {
     const existing = await get('SELECT * FROM tasks WHERE id = ?', [id]);
     if (!existing) return res.status(404).json({ message: 'Task not found' });
 
-    // only owner or admin can update
+    
     if (req.user.role !== 'admin' && existing.createdBy !== req.user.id) {
       return res.status(403).json({ message: 'Forbidden' });
     }
@@ -141,7 +141,7 @@ exports.deleteTask = async (req, res) => {
     const existing = await get('SELECT * FROM tasks WHERE id = ?', [id]);
     if (!existing) return res.status(404).json({ message: 'Task not found' });
 
-    // only owner or admin can delete
+    
     if (req.user.role !== 'admin' && existing.createdBy !== req.user.id) {
       return res.status(403).json({ message: 'Forbidden' });
     }

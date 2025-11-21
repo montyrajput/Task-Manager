@@ -1,4 +1,4 @@
-// backend/config/db.js
+
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const { promisify } = require('util');
@@ -13,10 +13,10 @@ const db = new sqlite3.Database(DB_PATH, (err) => {
 });
 
 db.serialize(() => {
-  // enforce foreign keys
+  
   db.run('PRAGMA foreign_keys = ON;');
 
-  // users table
+  
   db.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE,
@@ -24,7 +24,7 @@ db.serialize(() => {
     role TEXT DEFAULT 'user'
   )`);
 
-  // tasks table
+  
   db.run(`CREATE TABLE IF NOT EXISTS tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
@@ -36,12 +36,12 @@ db.serialize(() => {
   )`);
 });
 
-// promisified helpers
+
 const run = function (sql, params = []) {
   return new Promise((resolve, reject) => {
     db.run(sql, params, function (err) {
       if (err) return reject(err);
-      // `this` is the Statement, includes lastID and changes
+      
       resolve({ lastID: this.lastID, changes: this.changes });
     });
   });

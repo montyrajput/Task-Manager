@@ -1,4 +1,4 @@
-// backend/controllers/authController.js
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
@@ -16,7 +16,7 @@ const loginSchema = Joi.object({
 });
 
 const generateToken = (user) => {
-  // include minimal user info in token
+  
   return jwt.sign({ id: user.id, username: user.username, role: user.role }, process.env.JWT_SECRET, {
     expiresIn: '7d'
   });
@@ -29,7 +29,7 @@ exports.register = async (req, res) => {
 
     const { username, password, role } = value;
 
-    // check existing
+    
     const existing = await get('SELECT * FROM users WHERE username = ?', [username]);
     if (existing) return res.status(400).json({ message: 'Username already taken' });
 
