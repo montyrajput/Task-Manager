@@ -27,14 +27,28 @@ A full-stack **Task Manager Application** with **Role-Based Access Control**, wh
 ---
 
 ## 🖼️ Project Preview (Screenshots)
+ **Login Page**
+![Login Page](./frontend/src/images/LoginImage.png) 
 
-![Login Page](./frontend/src/images/LoginImage.png)  
-![Register Page](./frontend//src//images/RegisterImage.png)  
+**Register Page**
+![Register Page](./frontend//src//images/RegisterImage.png)
+
+ **User Dashboard**
 ![User Dashboard](./frontend/src/images/UserDashboard.png)  
-![Admin Dashboard](./frontend/src/images/AdminImage.png)  
-![Create Task Page](./frontend/src/images/CreateTask.png)  
-![Edit Task Page](./frontend/src/images/EditTask.png)  
-![Search Filter](./frontend/src/images/SearchFilter.png)  
+
+**Admin Dashboard**
+![Admin Dashboard](./frontend/src/images/AdminImage.png)
+
+ **Create Task Page**
+![Create Task Page](./frontend/src/images/CreateTask.png) 
+
+**Edit Task Page**
+![Edit Task Page](./frontend/src/images/EditTask.png)
+
+**Search Filter**
+![Search Filter](./frontend/src/images/SearchFilter.png)
+  
+**Mobile View**
 ![Mobile View](./frontend/src/images/MobileView.png)  
   
 
