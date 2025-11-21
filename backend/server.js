@@ -16,7 +16,7 @@ require("./config/db");
 
 app.use(
   cors({
-    origin: "https://task-manager-iota-rosy.vercel.app/", 
+    origin: "https://task-manager-iota-rosy.vercel.app", 
     credentials: true,
   })
 );
