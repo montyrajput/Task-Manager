@@ -16,7 +16,7 @@ const TaskCard = ({ task, onEdit, onDelete, isOwn, isAdmin }) => {
   return (
     <div className="bg-white rounded-xl border shadow-md hover:shadow-xl transition-all p-6 flex flex-col gap-4">
 
-      {/* TITLE */}
+      
       <div>
         <h3 className="text-xl font-semibold text-slate-900">{task.title}</h3>
 
@@ -25,14 +25,14 @@ const TaskCard = ({ task, onEdit, onDelete, isOwn, isAdmin }) => {
         </p>
       </div>
 
-      {/* STATUS */}
+      
       <span
         className={`px-3 py-1 text-xs w-fit rounded-full border ${getStatusColor()}`}
       >
         {task.status.charAt(0).toUpperCase() + task.status.slice(1)}
       </span>
 
-      {/* DETAILS */}
+      
       <div className="text-xs text-slate-500">
         <p>
           👤 Created by: <span className="font-medium">{task.ownerName}</span>
@@ -51,10 +51,10 @@ const TaskCard = ({ task, onEdit, onDelete, isOwn, isAdmin }) => {
         </p>
       </div>
 
-      {/* BUTTONS (NO UNDERLINE / NO BORDER) */}
+      
       <div className="flex gap-3 mt-3">
 
-        {/* EDIT BUTTON */}
+        
         {isOwn && onEdit && (
           <button
             onClick={() => onEdit(task)}
@@ -64,7 +64,7 @@ const TaskCard = ({ task, onEdit, onDelete, isOwn, isAdmin }) => {
           </button>
         )}
 
-        {/* DELETE BUTTON */}
+        
         {(isOwn || isAdmin) && (
           <button
             onClick={() => onDelete(task.id)}

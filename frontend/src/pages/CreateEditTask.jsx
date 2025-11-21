@@ -10,7 +10,7 @@ const CreateEditTask = () => {
 
   const isEdit = Boolean(id);
 
-  // If editing, data comes from location.state.task
+  
   const initial = state?.task || { 
     title: '', 
     description: '', 
@@ -20,10 +20,10 @@ const CreateEditTask = () => {
   const handleSubmit = async (data) => {
     try {
       if (isEdit) {
-        // UPDATE TASK
+        
         await API.put(`/tasks/${id}`, data);
       } else {
-        // CREATE TASK
+        
         await API.post('/tasks', data);
       }
 

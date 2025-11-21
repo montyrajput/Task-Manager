@@ -15,21 +15,19 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token') || null);
   const [loading, setLoading] = useState(false);
 
-  // Save user to localStorage
+  
   useEffect(() => {
     if (user) localStorage.setItem('user', JSON.stringify(user));
     else localStorage.removeItem('user');
   }, [user]);
 
-  // Save token
+  
   useEffect(() => {
     if (token) localStorage.setItem('token', token);
     else localStorage.removeItem('token');
   }, [token]);
 
-  // -------------------------------
-  // LOGIN → username + password
-  // -------------------------------
+  
   const login = async (username, password) => {
     setLoading(true);
     try {
@@ -40,7 +38,7 @@ export const AuthProvider = ({ children }) => {
 
       setLoading(false);
 
-      // Return user as well for redirect logic
+      
       return { ok: true, user: res.data.user };
     } catch (err) {
       setLoading(false);
@@ -48,9 +46,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // -------------------------------
-  // REGISTER → username + password + role
-  // -------------------------------
+  
   const register = async ({ username, password, role }) => {
     setLoading(true);
     try {
@@ -67,7 +63,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // LOGOUT
+  
   const logout = () => {
     setToken(null);
     setUser(null);

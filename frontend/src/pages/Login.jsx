@@ -9,14 +9,14 @@ const Login = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Auto redirect
+  
   useEffect(() => {
     if (user) {
       navigate(user.role === "admin" ? "/admin" : "/");
     }
   }, [user, navigate]);
 
-  // Disable scroll on login page
+  
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => (document.body.style.overflow = "auto");
@@ -24,7 +24,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-start justify-center bg-gray-50 p-4 pt-20">
-      {/* ↑ Added pt-20 to shift card slightly up */}
+      
 
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg border">
 

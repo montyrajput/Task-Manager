@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Search + Filter + Pagination
+  
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
   const [page, setPage] = useState(1);
@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
 
-  // Fetch tasks
+  
   const fetchTasks = async () => {
     setLoading(true);
     try {
@@ -38,12 +38,12 @@ const Dashboard = () => {
     fetchTasks();
   }, [user, search, status, page]);
 
-  // Edit
+  
   const handleEdit = (task) => {
     navigate(`/edit/${task.id}`, { state: { task } });
   };
 
-  // Delete
+  
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this task?")) return;
 
@@ -58,13 +58,13 @@ const Dashboard = () => {
   return (
     <div className="max-w-6xl mx-auto mt-10 p-4 space-y-8">
 
-      {/* HEADER BAR */}
+      
       <div className="bg-white shadow-md p-5 flex flex-col md:flex-row justify-between items-center rounded-lg">
         <h1 className="text-3xl font-bold text-slate-800 tracking-wide">
           {user?.role === "admin" ? "📌 All Tasks (Admin)" : "📌 My Tasks"}
         </h1>
 
-        {/* Create Task Button For User */}
+        
         {user?.role !== "admin" && (
           <button
             onClick={() => navigate('/create')}
@@ -75,7 +75,7 @@ const Dashboard = () => {
         )}
       </div>
 
-      {/* SEARCH + FILTER BOX */}
+      
       <div className="bg-white p-5 shadow-md rounded-lg flex flex-col md:flex-row gap-4">
 
         <input
@@ -98,11 +98,11 @@ const Dashboard = () => {
 
       </div>
 
-      {/* Task Loader / Error */}
+      
       {loading && <div className="text-center text-indigo-600 text-lg font-semibold">Loading tasks...</div>}
       {error && <div className="text-center text-red-600">{error}</div>}
 
-      {/* TASK GRID */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {tasks.map((task) => (
           <TaskCard
@@ -116,7 +116,7 @@ const Dashboard = () => {
         ))}
       </div>
 
-      {/* PAGINATION */}
+      
       <div className="flex justify-center gap-6 mt-6">
 
         <button

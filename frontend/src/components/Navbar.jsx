@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="w-full bg-white shadow-md px-4 py-3 sticky top-0 z-50">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
 
-        {/* Left Logo + Username */}
+       
         <div className="flex items-center gap-4">
           <Link to="/" className="font-bold text-2xl text-slate-900">
             AVPL TaskManager
@@ -29,7 +29,7 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Desktop Menu */}
+       
         <div className="hidden md:flex items-center gap-4">
           {!user ? (
             <>
@@ -68,7 +68,7 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Mobile Menu Button */}
+        
         <button
           className="md:hidden p-2"
           onClick={() => setOpen(!open)}
@@ -88,7 +88,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
+      
       {open && (
         <div className="md:hidden bg-white shadow-md border-t p-4 flex flex-col gap-3">
 
@@ -134,7 +134,7 @@ const Navbar = () => {
             </>
           )}
 
-          {/* Username visible on mobile */}
+          
           {user && (
             <div className="mt-2 text-center text-slate-600 font-medium">
               Hi, {user.username}

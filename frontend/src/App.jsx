@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* USER DASHBOARD */}
+         
           <Route
             path="/"
             element={
@@ -35,7 +35,7 @@ const App = () => {
             }
           />
 
-          {/* ADMIN DASHBOARD */}
+          
           <Route
             path="/admin"
             element={
@@ -45,7 +45,7 @@ const App = () => {
             }
           />
 
-          {/* TASK ROUTES */}
+          
           <Route
             path="/create"
             element={
@@ -64,7 +64,7 @@ const App = () => {
             }
           />
 
-          {/* DEFAULT */}
+          
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>

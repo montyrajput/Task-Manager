@@ -9,7 +9,7 @@ const Register = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Disable scroll only on register page
+  
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => (document.body.style.overflow = "auto");
@@ -29,7 +29,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex items-start justify-center bg-gray-50 p-4 pt-20">
-      {/* Positioned slightly upward using pt-20 */}
+      
 
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg border">
 
